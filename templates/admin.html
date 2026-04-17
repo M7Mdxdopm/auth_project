@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Admin</h2>
+        <p class="page-text">Welcome {{ username }}, you have admin access.</p>
+        <button onclick="window.location.href='/logout'">Logout</button>
+    </div>
+</body>
+</html>

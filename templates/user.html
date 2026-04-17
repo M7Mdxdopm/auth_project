@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>User</h2>
+        <p class="page-text">Welcome {{ username }}, you have standard user access.</p>
+        <button onclick="window.location.href='/logout'">Logout</button>
+    </div>
+</body>
+</html>

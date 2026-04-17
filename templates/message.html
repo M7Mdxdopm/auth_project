@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>{{ title }}</h2>
+
+        {% if message_type == "success" %}
+            <p class="message-success">{{ message }}</p>
+        {% else %}
+            <p class="message-error">{{ message }}</p>
+        {% endif %}
+
+        <button onclick="window.location.href='{{ link_url }}'">{{ link_text }}</button>
+    </div>
+</body>
+</html>
