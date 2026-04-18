@@ -67,7 +67,6 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     error = None
-    success = None
 
     if request.method == 'POST':
         username = request.form['username'].strip()
@@ -87,6 +86,7 @@ def register():
 
             if existing_user:
                 error = "Username already exists!"
+                conn.close()
             else:
                 hashed_password = hash_password(password)
                 c.execute(
@@ -94,12 +94,15 @@ def register():
                     (username, hashed_password, "user")
                 )
                 conn.commit()
-                success = "Account created successfully! You can now log in."
+                conn.close()
 
-            conn.close()
+               
+                session['username'] = username
+                session['role'] = 'user'
 
-    return render_template('register.html', error=error, success=success)
+                return redirect('/user')
 
+    return render_template('register.html', error=error)
 
 @app.route('/admin')
 def admin():
