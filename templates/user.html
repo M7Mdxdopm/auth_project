@@ -7,7 +7,22 @@
 <body>
     <div class="container">
         <h2>User</h2>
-        <p class="page-text">Welcome {{ username }}, you have standard user access.</p>
+
+        <p class="page-text">
+            Welcome {{ username }}, you have standard user access.
+        </p>
+
+        <div class="user-info">
+            <p><strong>Username:</strong> {{ user_data[0] }}</p>
+            <p><strong>Role:</strong> {{ user_data[1] }}</p>
+            <p><strong>First Name:</strong> {{ user_data[2] }}</p>
+            <p><strong>Last Name:</strong> {{ user_data[3] }}</p>
+            <p><strong>Israeli ID:</strong> {{ user_data[4] }}</p>
+            <p><strong>Credit Card:</strong> {{ user_data[5] }}</p>
+            <p><strong>Valid Date:</strong> {{ user_data[6] }}</p>
+            <p><strong>CVC:</strong> {{ user_data[7] }}</p>
+        </div>
+
         <button onclick="window.location.href='/logout'">Logout</button>
     </div>
 </body>

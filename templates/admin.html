@@ -5,9 +5,47 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="container admin-container">
         <h2>Admin</h2>
-        <p class="page-text">Welcome {{ username }}, you have admin access.</p>
+
+        <p class="page-text">
+            Welcome {{ username }}, you have admin access.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Israeli ID</th>
+                        <th>Credit Card</th>
+                        <th>Valid Date</th>
+                        <th>CVC</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>{{ user[3] }}</td>
+                        <td>{{ user[4] }}</td>
+                        <td>{{ user[5] }}</td>
+                        <td>{{ user[6] }}</td>
+                        <td>{{ user[7] }}</td>
+                        <td>{{ user[8] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
         <button onclick="window.location.href='/logout'">Logout</button>
     </div>
 </body>
